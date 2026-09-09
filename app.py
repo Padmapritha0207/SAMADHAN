@@ -25,6 +25,9 @@ app.config["MAX_CONTENT_LENGTH"] = MAX_CONTENT_LENGTH
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+# Ensure database is initialized with tables and seeds on server start
+database.init_db()
+
 # Demo User Personas
 PERSONAS = {
     "citizen": {
@@ -566,6 +569,6 @@ def uploaded_file(filename):
     return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
 
 if __name__ == "__main__":
-    database.init_db()
-    print("Starting SAMADHAN on http://127.0.0.1:5000 ...")
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    print(f"Starting SAMADHAN on http://0.0.0.0:{port} ...")
+    app.run(host="0.0.0.0", port=port, debug=False)
