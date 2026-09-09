@@ -1,0 +1,29 @@
+﻿# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SQLite databases & temp files
+*.db
+*.sqlite3
+
+# Environment variables & local configuration
+.env
+.venv
+env/
+venv/
+ENV/
+
+# User uploads (temporary test uploads)
+uploads/*
+!uploads/.gitkeep
+
+# Operating System artifacts
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Logs
+*.log

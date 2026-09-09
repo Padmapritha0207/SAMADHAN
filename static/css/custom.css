@@ -1,0 +1,320 @@
+/* custom.css - SAMADHAN GovTech Theme Styling */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+:root {
+  --gov-green: #065f46;
+  --gov-green-dark: #064e3b;
+  --gov-green-light: #10b981;
+  --gov-gold: #b45309;
+  --gov-gold-light: #d97706;
+  --gov-navy: #091e3a;
+  --gov-navy-dark: #002147;
+  --gov-slate: #1e293b;
+  --gov-bg: #f8fafc;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--gov-bg);
+  color: #1e293b;
+  overflow-x: hidden;
+}
+
+.font-serif-inst {
+  font-family: 'Merriweather', Georgia, serif;
+}
+
+.font-creed {
+  font-family: 'Cinzel', serif;
+}
+
+/* Institutional Utility Top Strip */
+.inst-utility-bar {
+  background-color: #061e16;
+  color: #94a3b8;
+  font-size: 11px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Tricolor Top Bar */
+.gov-tricolor-bar {
+  height: 4px;
+  background: linear-gradient(90deg, #FF9933 0%, #FF9933 33.3%, #FFFFFF 33.3%, #FFFFFF 66.6%, #138808 66.6%, #138808 100%);
+  position: sticky;
+  top: 0;
+  z-index: 60;
+}
+
+/* Sticky Navigation Header */
+.sticky-nav {
+  position: sticky;
+  top: 4px;
+  z-index: 50;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(6, 78, 59, 0.98);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* Institutional Notice Ticker (IIT Madras Style) */
+.ticker-container {
+  background-color: #0a1b2a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.ticker-wrap {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker-move {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: tickerSlide 45s linear infinite;
+}
+
+.ticker-move:hover {
+  animation-play-state: paused;
+}
+
+@keyframes tickerSlide {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* Institutional Card & Border Styles */
+.inst-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.inst-card:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 33, 71, 0.08), 0 8px 10px -6px rgba(0, 33, 71, 0.04);
+  border-color: #cbd5e1;
+}
+
+.inst-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* Smooth Horizontal Sliding Hero Background */
+.hero-carousel-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-track {
+  display: flex;
+  width: 500%;
+  height: 100%;
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.hero-slide {
+  width: 20%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(6, 78, 59, 0.90) 0%, rgba(15, 23, 42, 0.88) 100%);
+  z-index: 1;
+}
+
+/* Stepper styles */
+.stepper-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.stepper-step::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: -50%;
+  width: 100%;
+  height: 3px;
+  background-color: #e2e8f0;
+  z-index: 0;
+}
+
+.stepper-step:first-child::before {
+  display: none;
+}
+
+.stepper-step.completed::before {
+  background-color: #10b981;
+}
+
+.stepper-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  background-color: #f1f5f9;
+  color: #64748b;
+  border: 2px solid #cbd5e1;
+  position: relative;
+  z-index: 1;
+  transition: all 0.25s ease;
+}
+
+.stepper-step.active .stepper-circle {
+  background-color: #065f46;
+  color: #ffffff;
+  border-color: #065f46;
+  box-shadow: 0 0 0 4px rgba(6, 95, 70, 0.2);
+}
+
+.stepper-step.completed .stepper-circle {
+  background-color: #10b981;
+  color: #ffffff;
+  border-color: #10b981;
+}
+
+/* 15-Stage Horizontal Scroll Tracker */
+.lifecycle-scroll {
+  display: flex;
+  overflow-x: auto;
+  padding: 1rem 0;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.lifecycle-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.lifecycle-scroll::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.lifecycle-node {
+  min-width: 140px;
+  max-width: 150px;
+  text-align: center;
+  position: relative;
+  padding: 0 0.5rem;
+}
+
+.lifecycle-node::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: -50%;
+  width: 100%;
+  height: 2px;
+  background: #e2e8f0;
+  z-index: 0;
+}
+
+.lifecycle-node:last-child::after {
+  display: none;
+}
+
+.lifecycle-node.passed::after {
+  background: #10b981;
+}
+
+/* Badge colors */
+.badge-water { background: #e0f2fe; color: #0369a1; border-color: #bae6fd; }
+.badge-health { background: #fee2e2; color: #b91c1c; border-color: #fecaca; }
+.badge-agri { background: #dcfce7; color: #15803d; border-color: #bbf7d0; }
+.badge-env { background: #fef3c7; color: #b45309; border-color: #fde68a; }
+.badge-san { background: #f3e8ff; color: #7e22ce; border-color: #e9d5ff; }
+.badge-edu { background: #ffedd5; color: #c2410c; border-color: #fed7aa; }
+.badge-acc { background: #ccfbf1; color: #0f766e; border-color: #99f6e4; }
+
+/* Custom animation pulses */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.95; transform: scale(1.02); }
+}
+
+.pulse-card {
+  animation: pulse-subtle 3s infinite ease-in-out;
+}
+
+/* Leaflet map container */
+#jharkhandMap {
+  height: 480px;
+  width: 100%;
+  border-radius: 0.75rem;
+  z-index: 10;
+}
+
+/* Toast notifications */
+#toastContainer {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.toast {
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideIn {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Social media icon buttons */
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  transition: all 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.social-btn.insta:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); border-color: transparent; }
+.social-btn.linkedin:hover { background: #0077b5; border-color: #0077b5; }
+.social-btn.twitter:hover { background: #000000; border-color: #334155; }
+.social-btn.fb:hover { background: #1877f2; border-color: #1877f2; }
